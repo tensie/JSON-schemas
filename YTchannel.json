@@ -1,0 +1,51 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "Youtube Channels",
+	"type" : "object",
+	"properties" : {
+		"links" : {
+			"type" : "array",
+			"items" : {
+				"type": "string",
+				"format": "uri"
+			}
+		},
+		"joined_at" : {
+			"type" : "integer"
+		},
+		"id" : {
+			"type" : "string",
+			"pattern" : "^[a-zA-Z0-9]+$"
+		},
+		"logo" : {
+			"type" : "string",
+			"format": "uri"
+		},
+		"total_video_views" : {
+			"type" : "integer",
+			"minimum" : 0
+		},
+		"description" : {
+			"type" : "string"
+		},
+		"youtube_url" : {
+			"type" : "string",
+			"pattern": "^https?:\\/\\/www\\.youtube\\.com\\/channel"
+		},
+		"channel_subscribers" : {
+			"type" : "integer",
+			"minimum" : 0
+		},
+		"name" : {
+			"type" : "string"
+		}
+	},
+	"required" : [
+		"joined_at",
+		"id",
+		"total_video_views",
+		"youtube_url",
+		"channel_subscribers",
+		"name"
+	]
+}
