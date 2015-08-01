@@ -1,0 +1,214 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "Google Play Apps",
+	"type" : "object",
+	"definitions" : {
+		"tag" : {
+			"type": "object",
+			"properties": {
+				"isSuperPositive" : {
+					"type" : "string",
+					"enum" : ["0", "1"]
+				},
+				"reviewUrl" : {
+					"type" : "string",
+					"pattern" : "^https?:\\/\\/play\\.google\\.com\\/store\\/apps\\/details\\?id=[a-zA-Z0-9\\_\\.]+$"
+				},
+				"sentence" : {
+					"type" : "string"
+				},
+				"tag" : {
+					"type" : "string"
+				},
+				"userNickname" : {
+					"type" : "string"
+				}
+			},
+			"required": ["isSuperPositive", "reviewUrl", "sentence", "tag", "userNickname"]
+		}
+	},
+	"properties" : {
+		"author" : {
+			"type" : "object",
+			"properties" : {
+				"email" : {
+					"type" : "string",
+					"format": "email"
+				},
+				"website" : {
+					"type" : "string",
+					"format": "uri"
+				},
+				"name" : {
+					"type" : "string"
+				}
+			},
+			"required" : [
+				"email",
+				"name"
+			]
+		},
+		"rating" : {
+			"type" : "object",
+			"properties" : {
+				"value" : {
+					"type" : "number",
+					"minimum" : 0,
+					"maximum" : 5
+				},
+				"votes" : {
+					"type" : "integer",
+					"minimum" : 0
+				}
+			}
+		},
+		"screens" : {
+			"type" : "array",
+			"items" : {
+				"type": "string",
+				"format": "uri",
+				"minItems": 1
+			}
+		},	
+		"icon" : {
+			"type" : "string",
+			"format": "uri"
+		},
+		"price" : {
+			"type" : "object",
+			"properties" : {
+				"currency" : {
+					"type" : "string"
+				},
+				"value" : {
+					"type" : "number",
+					"minimum" : 0
+				}
+			}
+		},
+		"tags" : {
+			"type" : "object",
+			"properties" : {
+				"_Tag__positive" : {
+					"type" : "array",
+					"items" : {
+						"$ref": "#/definitions/tag"
+					}
+				},
+				"_Tag__appId" : {
+					"type" : "string",
+					"pattern" : "^[a-zA-Z0-9\\_\\.]+$"
+				},
+				"_Tag__negative" : {
+					"type" : "array",
+					"items" : [
+						{ "$ref": "#/definitions/tag" }
+					]
+				}
+			}
+		},
+		"id" : {
+			"type" : "string",
+			"pattern" : "^[a-zA-Z0-9\\_\\.]+$"
+		},
+		"categories" : {
+			"type" : "array",
+			"items" : {
+				"type" : "string",
+				"pattern" : "^[A-Z0-9\\_]+$",
+				"minItems": 1
+			}
+		},
+		"subcategory" : {
+			"type" : "array",
+			"items" : {
+				"type" : "string",
+				"pattern" : "^[A-Z0-9\\_]+$"
+			}
+		},
+		"downloads" : {
+			"type" : "string"
+		},
+		"requirements" : {
+			"type" : "string"
+		},
+		"adult" : {
+			"type" : "string"
+		},
+		"size" : {
+			"type" : "integer"
+		},
+		"version" : {
+			"type" : "string",
+			"pattern" : "^[0-9\\.]+$"
+		},
+		"ownCategories" : {
+			"type" : "array",
+			"items" : {}
+		},
+		"description" : {
+			"type" : "string"
+		},
+		"reviews" : {
+			"type" : "array",
+			"items" : [
+				{
+					"type" : "object",
+					"properties" : {
+						"title" : {
+							"type" : "string"
+						},
+						"authorlink" : {
+							"type" : "string",
+							"pattern" : "^\\/store\\/people\\/details\\?id=[0-9]+$"
+						},
+						"date" : {
+							"type" : "string"
+						},
+						"text" : {
+							"type" : "string"
+						},
+						"author" : {
+							"type" : "string"
+						},
+						"rating" : {
+							"type" : "string",
+							"pattern" : "^Средняя оценка\\:"
+						}
+					}
+				}
+			]
+		},
+		"name" : {
+			"type" : "string"
+		},
+		"date_release" : {
+			"type" : "string"
+		},
+		"measure" : {
+			"type" : "string",
+			"enum" : ["M", "k"]
+		}
+	},
+	"required" : [
+		"author",
+		"rating",
+		"screens",
+		"icon",
+		"tags",
+		"id",
+		"categories",
+		"subcategory",
+		"downloads",
+		"requirements",
+		"adult",
+		"size",
+		"version",
+		"ownCategories",
+		"description",
+		"reviews",
+		"name",
+		"date_release",
+		"measure"
+	]
+}
