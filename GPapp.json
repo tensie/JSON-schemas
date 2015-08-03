@@ -144,10 +144,11 @@
 		},
 		"ownCategories" : {
 			"type" : "array",
-			"items" : {}
+			"minItems": 0
 		},
 		"description" : {
-			"type" : "string"
+			"type" : "string",
+			"minLength": 1
 		},
 		"reviews" : {
 			"type" : "array",
@@ -163,13 +164,16 @@
 							"pattern" : "^\\/store\\/people\\/details\\?id=[0-9]+$"
 						},
 						"date" : {
-							"type" : "string"
+							"type" : "string",
+							"minLength": 1
 						},
 						"text" : {
-							"type" : "string"
+							"type" : "string",
+							"minLength": 1
 						},
 						"author" : {
-							"type" : "string"
+							"type" : "string",
+							"minLength": 1
 						},
 						"rating" : {
 							"type" : "string",
@@ -180,10 +184,12 @@
 			]
 		},
 		"name" : {
-			"type" : "string"
+			"type" : "string",
+			"minLength": 1
 		},
 		"date_release" : {
-			"type" : "string"
+			"type" : "string",
+			"minLength": 1
 		},
 		"measure" : {
 			"type" : "string",
