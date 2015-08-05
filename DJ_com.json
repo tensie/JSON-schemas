@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Dojki.com validation schema",
+  "type": "object",
+  "properties": {
+    "host": {
+      "type": "string",
+	  "pattern": "[a-z-\\.]+"
+    },
+    "url": {
+      "type": "string",
+	  "format": "uri"
+    },
+    "header": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string",
+			  "format": "uri"
+            }
+          }
+        }
+      ],
+	  "minItems": 1
+    },
+    "duration": {
+      "type": "string",
+	  "pattern": "^\\d+:\\d{2}$"
+    },
+    "date": {
+      "type": "string",
+	  "pattern": "(0[1-9]|[12][0-9]|3[01])[\\.](0[1-9]|1[012])[\\.](19|20)\\d\\d"
+    },
+    "image_url": {
+      "type": "string",
+	  "format": "uri"
+    }
+  },
+  "required" : [
+		"host",
+		"url",
+		"header",
+		"categories",
+		"duration",
+		"date",
+		"image_url"
+	]
+}
