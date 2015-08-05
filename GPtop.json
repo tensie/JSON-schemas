@@ -36,10 +36,12 @@
 			"type" : "string",
 			"format" : "uri"
 		},
-		"price" : {
-			"type" : "string",
-			"pattern" : "^\\d+,\\d{2}\\D+"
-		},
+		"price" : 
+			oneOf": [
+				{ "type" : "string", "pattern" : "^\\d+,\\d{2}\\D+"},
+				{ "type" : "string", "pattern" : "^Бесплатно" }
+			],
+		
 		"name" : {
 			"type" : "string"
 		},
@@ -48,9 +50,7 @@
 		}
 	},
 	"required" : [
-		"rating",
 		"image",
-		"rating_in_percentage",
 		"id",
 		"position",
 		"category",
