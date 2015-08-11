@@ -187,6 +187,13 @@
 			"type" : "string",
 			"minLength": 1
 		},
+		"releaseNotes" : {
+			"type" : "array",
+			"items" : {
+				"type" : "string",
+				"minItems": 1
+			}
+		},
 		"date_release" : {
 			"type" : "string",
 			"minLength": 1
