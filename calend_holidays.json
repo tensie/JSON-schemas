@@ -1,136 +1,136 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "информация о празднике",
-  "type": "object",
-  "properties": {
-    "id": {
-      "description": "идентификатор праздника",
-      "type": "string"
-    },
-    "url": {
-      "description": "ссылка на страницу праздника",
-      "type": "string",
-      "pattern": "^https?://"
-    },
-    "date": {
-      "description": "дата праздника",
-      "type": "string"
-    },
-    "type": {
-      "description": "тип праздника",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "id типа праздника",
-          "type": "string"
-        },
-        "title": {
-          "description": "название типа праздника",
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "title"
-      ]
-    },
-    "country": {
-      "description": "поле только для государственных праздников, содержит название страны",
-      "type": "string"
-    },
-    "slink": {
-      "description": "поле, которое должно присутствовать только у праздников с непостоянными датами",
-      "type": "string"
-    },
-    "title": {
-      "description": "название праздника",
-      "type": "string"
-    },
-    "image_big": {
-      "description": "главная картинка на странице праздника",
-      "$ref": "#/definitions/image"
-    },
-    "images": {
-      "description": "картинки из описания",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/image"
-      }
-    },
-    "description": {
-      "description": "описание праздника",
-      "type": "string"
-    },
-    "num_of_subscribe": {
-      "description": "кол-во людей, добавивших этот праздник к себе в календарь",
-      "type": "integer",
-      "minimum": 0
-    },
-    "related": {
-      "description": "родственные праздники, представленные на странице праздника, обычно их не больше 5",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "title"
-        ]
-      }
-    },
-    "associated": {
-      "description": "идентификаторы на этот же праздник в других календарях",
-      "type": "array",
-      "items": {
-        "description": "иднтификатор ассоциированного праздника",
-        "type": "string"
-      }
-    },
-    "no_oficial": {
-      "description": "поле для неофициальных праздников, если оно присутствует то, значит это неофициальный праздник",
-      "enum": [
-        "True"
-      ]
-    },
-    "state_holiday": {
-      "description": "поле для государственных выходных, если оно присутствует то, значит день праздника - выходной",
-      "enum": [
-        "True"
-      ]
-    }
-  },
-  "definitions": {
-    "image": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "description": "ссылка на картинку",
-          "type": "string",
-          "pattern": "^https?://"
-        },
-        "text": {
-          "description": "текст под картинкой",
-          "type": "string"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    }
-  },
-  "required": [
-    "id",
-    "url",
-    "date",
-    "title",
-    "image_big",
-    "description"
-  ]
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"description" : "информация о празднике",
+	"type" : "object",
+	"properties" : {
+		"id" : {
+			"description" : "идентификатор праздника",
+			"type" : "string"
+		},
+		"url" : {
+			"description" : "ссылка на страницу праздника",
+			"type" : "string",
+			"pattern" : "^https?://"
+		},
+		"date" : {
+			"description" : "дата праздника",
+			"type" : "string"
+		},
+		"type" : {
+			"description" : "тип праздника",
+			"type" : "object",
+			"properties" : {
+				"id" : {
+					"description" : "id типа праздника",
+					"type" : "string"
+				},
+				"title" : {
+					"description" : "название типа праздника",
+					"type" : "string"
+				}
+			},
+			"required" : [
+				"id",
+				"title"
+			]
+		},
+		"country" : {
+			"description" : "поле только для государственных праздников, содержит название страны",
+			"type" : "string"
+		},
+		"slink" : {
+			"description" : "поле, которое должно присутствовать только у праздников с непостоянными датами",
+			"type" : "string"
+		},
+		"title" : {
+			"description" : "название праздника",
+			"type" : "string"
+		},
+		"image_big" : {
+			"description" : "главная картинка на странице праздника",
+			"$ref" : "#/definitions/image"
+		},
+		"images" : {
+			"description" : "картинки из описания",
+			"type" : "array",
+			"items" : {
+				"$ref" : "#/definitions/image"
+			}
+		},
+		"description" : {
+			"description" : "описание праздника",
+			"type" : "string"
+		},
+		"num_of_subscribe" : {
+			"description" : "кол-во людей, добавивших этот праздник к себе в календарь",
+			"type" : "integer",
+			"minimum" : 0
+		},
+		"related" : {
+			"description" : "родственные праздники, представленные на странице праздника, обычно их не больше 5",
+			"type" : "array",
+			"items" : {
+				"type" : "object",
+				"properties" : {
+					"id" : {
+						"type" : "string"
+					},
+					"title" : {
+						"type" : "string"
+					}
+				},
+				"required" : [
+					"id",
+					"title"
+				]
+			}
+		},
+		"associated" : {
+			"description" : "идентификаторы на этот же праздник в других календарях",
+			"type" : "array",
+			"items" : {
+				"description" : "иднтификатор ассоциированного праздника",
+				"type" : "string"
+			}
+		},
+		"no_oficial" : {
+			"description" : "поле для неофициальных праздников, если оно присутствует то, значит это неофициальный праздник",
+			"enum" : [
+				"True"
+			]
+		},
+		"state_holiday" : {
+			"description" : "поле для государственных выходных, если оно присутствует то, значит день праздника - выходной",
+			"enum" : [
+				"True"
+			]
+		}
+	},
+	"definitions" : {
+		"image" : {
+			"type" : "object",
+			"properties" : {
+				"value" : {
+					"description" : "ссылка на картинку",
+					"type" : "string",
+					"pattern" : "^https?://"
+				},
+				"text" : {
+					"description" : "текст под картинкой",
+					"type" : "string"
+				}
+			},
+			"required" : [
+				"value"
+			]
+		}
+	},
+	"required" : [
+		"id",
+		"url",
+		"date",
+		"title",
+		"image_big",
+		"description"
+	]
 }

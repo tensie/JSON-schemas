@@ -1,0 +1,126 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"description" : "publication info from pikabu.ru",
+	"type" : "object",
+	"required" : [
+		"url",
+		"rating",
+		"number_comments",
+		"title",
+		"content",
+		"tags",
+		"author",
+		"comments"
+	],
+	"properties" : {
+		"url" : {
+			"description" : "page URL",
+			"type" : "string",
+			"pattern" : "^https?://"
+		},
+		"date" : {
+			"description" : "date and time",
+			"type" : "integer"
+		},
+		"rating" : {
+			"description" : "rating of publication",
+			"type" : "object",
+			"required" : [
+				"plus",
+				"minus"
+			],
+			"properties" : {
+				"plus" : {
+					"description" : "number of of pluses",
+					"type" : "integer"
+				},
+				"minus" : {
+					"description" : "number of minuses",
+					"type" : "integer"
+				}
+			}
+		},
+		"number_comments" : {
+			"description" : "number of comments",
+			"type" : "integer",
+			"minimum" : 0
+		},
+		"title" : {
+			"description" : "title of publication",
+			"type" : "string"
+		},
+		"content" : {
+			"description" : "content of publication with images and video",
+			"type" : "array",
+			"items" : {
+				"description" : "text or image or video ",
+				"type" : "object",
+				"required" : [
+					"type",
+					"value"
+				],
+				"properties" : {
+					"type" : {
+						"enum" : [
+							"str",
+							"img",
+							"video"
+						]
+					},
+					"value" : {
+						"type" : "string"
+					}
+				}
+			}
+		},
+		"tags" : {
+			"type" : "array",
+			"items" : {
+				"type" : "string"
+			}
+		},
+		"author" : {
+			"description" : "author login",
+			"type" : "string"
+		},
+		"comments" : {
+			"description" : "info about comments",
+			"type" : "array",
+			"items" : {
+				"type" : "object",
+				"required" : [
+					"id",
+					"parent_id",
+					"author",
+					"date",
+					"text",
+					"rating"
+				],
+				"properties" : {
+					"id" : {
+						"type" : "string",
+						"pattern" : "[0-9]*"
+					},
+					"parent_id" : {
+						"type" : "string",
+						"pattern" : "[0-9]*"
+					},
+					"author" : {
+						"type" : "string"
+					},
+					"date" : {
+						"description" : "date and time of comment",
+						"type" : "integer"
+					},
+					"text" : {
+						"type" : "string"
+					},
+					"rating" : {
+						"type" : "string",
+						"pattern" : "^[\\+\\-0-9]+"
+					}
+				}
+			}
+		}
+	}
+}
