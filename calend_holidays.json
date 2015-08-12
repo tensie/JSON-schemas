@@ -1,136 +1,136 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "информация о празднике",
-  "type": "object",
-  "properties": {
-    "id": {
-      "description": "идентификатор праздника",
-      "type": "string"
-    },
-    "url": {
-      "description": "ссылка на страницу праздника",
-      "type": "string",
-      "pattern": "^https?://"
-    },
-    "date": {
-      "description": "дата праздника",
-      "type": "string"
-    },
-    "type": {
-      "description": "тип праздника",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "id типа праздника",
-          "type": "string"
-        },
-        "title": {
-          "description": "название типа праздника",
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "title"
-      ]
-    },
-    "country": {
-      "description": "поле только для государственных праздников, содержит название страны",
-      "type": "string"
-    },
-    "slink": {
-      "description": "поле, которое должно присутствовать только у праздников с непостоянными датами",
-      "type": "string"
-    },
-    "title": {
-      "description": "название праздника",
-      "type": "string"
-    },
-    "image_big": {
-      "description": "главная картинка на странице праздника",
-      "$ref": "#/definitions/image"
-    },
-    "images": {
-      "description": "картинки из описания",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/image"
-      }
-    },
-    "description": {
-      "description": "описание праздника",
-      "type": "string"
-    },
-    "num_of_subscribe": {
-      "description": "кол-во людей, добавивших этот праздник к себе в календарь",
-      "type": "integer",
-      "minimum": 0
-    },
-    "related": {
-      "description": "родственные праздники, представленные на странице праздника, обычно их не больше 5",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id",
-          "title"
-        ]
-      }
-    },
-    "associated": {
-      "description": "идентификаторы на этот же праздник в других календарях",
-      "type": "array",
-      "items": {
-        "description": "иднтификатор ассоциированного праздника",
-        "type": "string"
-      }
-    },
-    "no_oficial": {
-      "description": "поле для неофициальных праздников, если оно присутствует то, значит это неофициальный праздник",
-      "enum": [
-        "True"
-      ]
-    },
-    "state_holiday": {
-      "description": "поле для государственных выходных, если оно присутствует то, значит день праздника - выходной",
-      "enum": [
-        "True"
-      ]
-    }
-  },
-  "definitions": {
-    "image": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "description": "ссылка на картинку",
-          "type": "string",
-          "pattern": "^https?://"
-        },
-        "text": {
-          "description": "текст под картинкой",
-          "type": "string"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    }
-  },
-  "required": [
-    "id",
-    "url",
-    "date",
-    "title",
-    "image_big",
-    "description"
-  ]
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"description" : "РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂР°Р·РґРЅРёРєРµ",
+	"type" : "object",
+	"properties" : {
+		"id" : {
+			"description" : "РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїСЂР°Р·РґРЅРёРєР°",
+			"type" : "string"
+		},
+		"url" : {
+			"description" : "СЃСЃС‹Р»РєР° РЅР° СЃС‚СЂР°РЅРёС†Сѓ РїСЂР°Р·РґРЅРёРєР°",
+			"type" : "string",
+			"pattern" : "^https?://"
+		},
+		"date" : {
+			"description" : "РґР°С‚Р° РїСЂР°Р·РґРЅРёРєР°",
+			"type" : "string"
+		},
+		"type" : {
+			"description" : "С‚РёРї РїСЂР°Р·РґРЅРёРєР°",
+			"type" : "object",
+			"properties" : {
+				"id" : {
+					"description" : "id С‚РёРїР° РїСЂР°Р·РґРЅРёРєР°",
+					"type" : "string"
+				},
+				"title" : {
+					"description" : "РЅР°Р·РІР°РЅРёРµ С‚РёРїР° РїСЂР°Р·РґРЅРёРєР°",
+					"type" : "string"
+				}
+			},
+			"required" : [
+				"id",
+				"title"
+			]
+		},
+		"country" : {
+			"description" : "РїРѕР»Рµ С‚РѕР»СЊРєРѕ РґР»СЏ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… РїСЂР°Р·РґРЅРёРєРѕРІ, СЃРѕРґРµСЂР¶РёС‚ РЅР°Р·РІР°РЅРёРµ СЃС‚СЂР°РЅС‹",
+			"type" : "string"
+		},
+		"slink" : {
+			"description" : "РїРѕР»Рµ, РєРѕС‚РѕСЂРѕРµ РґРѕР»Р¶РЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІРѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ Сѓ РїСЂР°Р·РґРЅРёРєРѕРІ СЃ РЅРµРїРѕСЃС‚РѕСЏРЅРЅС‹РјРё РґР°С‚Р°РјРё",
+			"type" : "string"
+		},
+		"title" : {
+			"description" : "РЅР°Р·РІР°РЅРёРµ РїСЂР°Р·РґРЅРёРєР°",
+			"type" : "string"
+		},
+		"image_big" : {
+			"description" : "РіР»Р°РІРЅР°СЏ РєР°СЂС‚РёРЅРєР° РЅР° СЃС‚СЂР°РЅРёС†Рµ РїСЂР°Р·РґРЅРёРєР°",
+			"$ref" : "#/definitions/image"
+		},
+		"images" : {
+			"description" : "РєР°СЂС‚РёРЅРєРё РёР· РѕРїРёСЃР°РЅРёСЏ",
+			"type" : "array",
+			"items" : {
+				"$ref" : "#/definitions/image"
+			}
+		},
+		"description" : {
+			"description" : "РѕРїРёСЃР°РЅРёРµ РїСЂР°Р·РґРЅРёРєР°",
+			"type" : "string"
+		},
+		"num_of_subscribe" : {
+			"description" : "РєРѕР»-РІРѕ Р»СЋРґРµР№, РґРѕР±Р°РІРёРІС€РёС… СЌС‚РѕС‚ РїСЂР°Р·РґРЅРёРє Рє СЃРµР±Рµ РІ РєР°Р»РµРЅРґР°СЂСЊ",
+			"type" : "integer",
+			"minimum" : 0
+		},
+		"related" : {
+			"description" : "СЂРѕРґСЃС‚РІРµРЅРЅС‹Рµ РїСЂР°Р·РґРЅРёРєРё, РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅС‹Рµ РЅР° СЃС‚СЂР°РЅРёС†Рµ РїСЂР°Р·РґРЅРёРєР°, РѕР±С‹С‡РЅРѕ РёС… РЅРµ Р±РѕР»СЊС€Рµ 5",
+			"type" : "array",
+			"items" : {
+				"type" : "object",
+				"properties" : {
+					"id" : {
+						"type" : "string"
+					},
+					"title" : {
+						"type" : "string"
+					}
+				},
+				"required" : [
+					"id",
+					"title"
+				]
+			}
+		},
+		"associated" : {
+			"description" : "РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РЅР° СЌС‚РѕС‚ Р¶Рµ РїСЂР°Р·РґРЅРёРє РІ РґСЂСѓРіРёС… РєР°Р»РµРЅРґР°СЂСЏС…",
+			"type" : "array",
+			"items" : {
+				"description" : "РёРґРЅС‚РёС„РёРєР°С‚РѕСЂ Р°СЃСЃРѕС†РёРёСЂРѕРІР°РЅРЅРѕРіРѕ РїСЂР°Р·РґРЅРёРєР°",
+				"type" : "string"
+			}
+		},
+		"no_oficial" : {
+			"description" : "РїРѕР»Рµ РґР»СЏ РЅРµРѕС„РёС†РёР°Р»СЊРЅС‹С… РїСЂР°Р·РґРЅРёРєРѕРІ, РµСЃР»Рё РѕРЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ С‚Рѕ, Р·РЅР°С‡РёС‚ СЌС‚Рѕ РЅРµРѕС„РёС†РёР°Р»СЊРЅС‹Р№ РїСЂР°Р·РґРЅРёРє",
+			"enum" : [
+				"True"
+			]
+		},
+		"state_holiday" : {
+			"description" : "РїРѕР»Рµ РґР»СЏ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… РІС‹С…РѕРґРЅС‹С…, РµСЃР»Рё РѕРЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ С‚Рѕ, Р·РЅР°С‡РёС‚ РґРµРЅСЊ РїСЂР°Р·РґРЅРёРєР° - РІС‹С…РѕРґРЅРѕР№",
+			"enum" : [
+				"True"
+			]
+		}
+	},
+	"definitions" : {
+		"image" : {
+			"type" : "object",
+			"properties" : {
+				"value" : {
+					"description" : "СЃСЃС‹Р»РєР° РЅР° РєР°СЂС‚РёРЅРєСѓ",
+					"type" : "string",
+					"pattern" : "^https?://"
+				},
+				"text" : {
+					"description" : "С‚РµРєСЃС‚ РїРѕРґ РєР°СЂС‚РёРЅРєРѕР№",
+					"type" : "string"
+				}
+			},
+			"required" : [
+				"value"
+			]
+		}
+	},
+	"required" : [
+		"id",
+		"url",
+		"date",
+		"title",
+		"image_big",
+		"description"
+	]
 }
