@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "информация о городе",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "идентификатор города",
+      "type": "string"
+    },
+    "url": {
+      "description": "ссылка на страницу города",
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "country": {
+      "description": "название страны",
+      "type": "string"
+    },
+    "title": {
+      "description": "название города",
+      "type": "string"
+    },
+    "celebration": {
+      "description": "год основание и празднование дня города",
+      "type": "string"
+    },
+    "image_big": {
+      "description": "главная картинка на странице города",
+      "$ref": "#/definitions/image"
+    },
+    "images": {
+      "description": "картинки из описания",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/image"
+      }
+    },
+    "description": {
+      "description": "описание города",
+      "type": "string"
+    },
+    "gerb": {
+      "description": "герб города",
+      "$ref": "#/definitions/image"
+    },
+    "flag": {
+      "description": "флаг города",
+      "$ref": "#/definitions/image"
+    },
+    "holidays": {
+      "description": "значимые события города",
+      "type": "array",
+      "items": {
+        "description": "праздник",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "id праздника",
+            "type": "string"
+          },
+          "title": {
+            "description": "название праздника",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "image": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "ссылка на картинку",
+          "type": "string",
+          "pattern": "^https?://"
+        },
+        "text": {
+          "description": "текст под картинкой",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "url",
+    "country",
+    "title",
+    "image_big",
+    "description"
+  ]
+}
