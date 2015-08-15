@@ -1,0 +1,142 @@
+{  
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "description":"topic info from yaplakal.com",
+  "type":"object",
+  "required":[  
+    "url",
+    "author",
+    "answers",
+    "views",
+    "rating",
+    "category",
+    "title",
+    "comments"
+  ],
+  "properties":{  
+    "url":{  
+      "description":"URL of topic",
+      "type":"string",
+      "pattern":"^https?://"
+    },
+    "author":{  
+      "description":"author of topic",
+      "type":"object",
+      "required":[  
+        "id",
+        "login"
+      ],
+      "properties":{  
+        "id":{  
+          "description":"url to the account of user",
+          "type":"string"
+        },
+        "login":{  
+          "description":"name of user",
+          "type":"string"
+        }
+      }
+    },
+    "answers":{  
+      "type":"integer",
+      "minimum":0
+    },
+    "views":{  
+      "type":"integer",
+      "minimum":0
+    },
+    "rating":{  
+      "type":"integer"
+    },
+    "category":{  
+      "type":"string"
+    },
+    "title":{  
+      "description":"title of topic",
+      "type":"string"
+    },
+    "description":{  
+      "description":"description of topic",
+      "type":"string"
+    },
+    "comments":{  
+      "description":"comments of topic",
+      "type":"array",
+      "items":{  
+        "description":"commentinfo",
+        "type":"object",
+        "required":[  
+          "id",
+          "author",
+          "date",
+          "content"
+        ],
+        "properties":{  
+          "id":{  
+            "type":"string"
+          },
+          "author":{  
+            "type":"object",
+            "required":[  
+              "login"
+            ],
+            "properties":{  
+              "id":{  
+                "description":"url to the account of user",
+                "type":"string"
+              },
+              "login":{  
+                "description":"name of user",
+                "type":"string"
+              },
+              "status":{  
+                "description":"position of user",
+                "type":"string"
+              },
+              "registration":{  
+                "description":"date of user registration",
+                "type":"string"
+              },
+              "number_comments":{  
+                "type":"integer",
+                "minimum":0
+              },
+              "awards":{  
+                "type":"array",
+                "items":{  
+                  "description":"name of the award",
+                  "type":"string"
+                }
+              },
+              "date":{  
+                "description":"date of comments",
+                "type":"string"
+              },
+              "content":{  
+                "description":"comment of topic with images",
+                "type":"array",
+                "items":{  
+                  "required":[  
+                    "type",
+                    "value"
+                  ],
+                  "properties":{  
+                    "type":{  
+                      "enum":[  
+                        "str",
+                        "img",
+                        "video"
+                      ]
+                    },
+                    "value":{  
+                      "type":"string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

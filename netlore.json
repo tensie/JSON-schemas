@@ -1,0 +1,150 @@
+{  
+  "$schema":"http://json-schema.org/draft-04/schema#",
+  "description":"publication info from netlore.ru",
+  "type":"object",
+  "required":[  
+    "url",
+    "id",
+    "rating",
+    "number_comments",
+    "views",
+    "category",
+    "cover",
+    "title",
+    "content",
+    "tags",
+    "author",
+    "comments"
+  ],
+  "properties":{  
+    "url":{  
+      "description":"page URL",
+      "type":"string",
+      "pattern":"^https?://"
+    },
+    "id":{  
+      "description":"publication Number",
+      "type":"integer"
+    },
+    "rating":{  
+      "description":"rating of publication",
+      "type":"integer",
+      "minimum":0,
+      "maximum":5
+    },
+    "number_comments":{  
+      "description":"number of comments",
+      "type":"integer",
+      "minimum":0
+    },
+    "views":{  
+      "description":"number of views",
+      "type":"integer",
+      "minimum":0
+    },
+    "category":{  
+      "description":"categories of publication",
+      "type":"array",
+      "items":{  
+        "description":"category name",
+        "type":"string"
+      }
+    },
+    "cover":{  
+      "description":"cover of publication",
+      "type":"string"
+    },
+    "title":{  
+      "description":"title of publication",
+      "type":"string"
+    },
+    "content":{  
+      "description":"content of publication with images and video",
+      "type":"array",
+      "items":{  
+        "description":"text or image or video ",
+        "type":"object",
+        "required":[  
+          "type",
+          "value"
+        ],
+        "properties":{  
+          "type":{  
+            "enum":[  
+              "str",
+              "img",
+              "mov"
+            ]
+          },
+          "value":{  
+            "type":"string"
+          }
+        }
+      }
+    },
+    "tags":{  
+      "type":"array",
+      "items":{  
+        "type":"string"
+      }
+    },
+    "author":{  
+      "description":"info about author of publication",
+      "type":"object",
+      "required":[  
+        "login"
+      ],
+      "properties":{  
+        "login":{  
+          "type":"string"
+        },
+        "status":{  
+          "type":"string"
+        }
+      }
+    },
+    "comments":{  
+      "description":"info about comments",
+      "type":"array",
+      "items":{  
+        "type":"object",
+        "required":[  
+          "id",
+          "author",
+          "date",
+          "text",
+          "rating"
+        ],
+        "properties":{  
+          "id":{  
+            "type":"integer"
+          },
+          "author":{  
+            "type":"object",
+            "required":[  
+              "login"
+            ],
+            "properties":{  
+              "login":{  
+                "type":"string"
+              },
+              "status":{  
+                "type":"string"
+              }
+            }
+          },
+          "date":{  
+            "description":"date and time of comment",
+            "type":"string"
+          },
+          "text":{  
+            "type":"string"
+          },
+          "rating":{  
+            "type":"integer"
+          }
+        }
+      }
+    }
+  }
+}
