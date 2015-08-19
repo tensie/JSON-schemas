@@ -1,0 +1,135 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "bandsintown json schema",
+	"type" : "object",
+	"properties" : {
+		"description" : {
+			"oneOf": [
+				{ "type": "string" },
+				{ "type": "null" }
+			]
+		},
+		"title" : {
+			"type" : "string"
+		},
+		"ticket_type" : {
+			"oneOf": [
+				{ "type": "string" },
+				{ "type": "null" }
+			]
+		},
+		"venue" : {
+			"type" : "object",
+			"properties" : {
+				"city" : {
+					"type" : "string"
+				},
+				"name" : {
+					"type" : "string"
+				},
+				"country" : {
+					"type" : "string"
+				},
+				"region" : {
+					"type" : "string"
+				},
+				"longitude" : {
+					"type" : "number"
+				},
+				"latitude" : {
+					"type" : "number"
+				}
+			}
+		},
+		"facebook_rsvp_url" : {
+			"type" : "string",
+			"format" : "uri"
+		},
+		"ticket_url" : {
+			"type" : "string",
+			"format" : "uri"
+		},
+		"on_sale_datetime" : {
+			"type" : "string",
+			"format" : "datetime"
+		},
+		"formatted_datetime" : {
+			"type" : "string"
+		},
+		"datetime" : {
+			"type" : "string",
+			"format" : "datetime"
+		},
+		"formatted_location" : {
+			"type" : "string"
+		},
+		"artists" : {
+			"type" : "array",
+			"items" : {
+				"type" : "object",
+				"properties" : {
+					"website" : {
+						"oneOf": [
+							{ "type": "string", "format" : "uri" },
+							{ "type": "null" }
+							]
+					},
+					"facebook_page_url" : {
+						"oneOf": [
+							{ "type": "string", "format" : "uri" },
+							{ "type": "null" }
+							]
+					},
+					"name" : {
+						"type" : "string"
+					},
+					"url" : {
+						"type" : "string"
+					},
+					"tracker_count" : {
+						"type" : "integer"
+					},
+					"mbid" : {
+						"oneOf": [
+							{ "type": "string" },
+							{ "type": "null" }
+						]
+					},
+					"image_url" : {
+						"type" : "string",
+						"format" : "uri"
+					},
+					"facebook_tour_dates_url" : {
+						"type" : "string",
+						"format" : "uri"
+					},
+					"thumb_url" : {
+						"type" : "string",
+						"format" : "uri"
+					}
+				}
+			}
+		},
+		"ticket_status" : {
+			"type" : "string"
+		},
+		"id" : {
+			"type" : "integer"
+		}
+	},
+	"required" : [
+		"description",
+		"title",
+		"ticket_type",
+		"venue",
+		"facebook_rsvp_url",
+		"ticket_url",
+		"on_sale_datetime",
+		"formatted_datetime",
+		"datetime",
+		"formatted_location",
+		"artists",
+		"ticket_status",
+		"id"
+	]
+}

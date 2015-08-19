@@ -50,8 +50,7 @@
 			"type" : "string"
 		},
 		"pages" : {
-			"type" : "string",
-			"pattern" : "[0-9 ]+\\sстр\\."
+			"type" : "integer"
 		}
 	},
 	"required" : [
