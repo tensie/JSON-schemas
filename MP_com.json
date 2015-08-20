@@ -34,7 +34,7 @@
     },
     "duration": {
       "type": "string",
-	  "pattern": "^\\d+:\\d{2}$"
+	  "pattern": "^\\d+:\\d{2} мин\\.$"
     },
     "description": {
       "type": "string"
