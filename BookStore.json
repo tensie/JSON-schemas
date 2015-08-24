@@ -43,19 +43,24 @@
 			"type" : "string"
 		},
 		"year" : {
-			"type" : "number",
-			"pattern" : "(19|20)\\d\\d"
+			"oneOf": [
+			{ "type" : "number", "pattern" : "(19|20)\\d\\d" },
+			{ "type" : "string", "pattern" : "(19|20)\\d\\d" }
+			]
 		},
 		"cover" : {
 			"type" : "string"
 		},
 		"pages" : {
-			"type" : "integer"
-		}
-	},
-	"required" : [
-		"url",
-		"name",
-		"availability"
-	]
+			"oneOf": [
+				{ "type" : "integer" },
+				{ "type" : "string", "pattern" : "^[0-9 ]+" }
+			]
+		},
+		"required" : [
+			"url",
+			"name",
+			"availability"
+		]
+	}
 }
