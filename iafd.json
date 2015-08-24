@@ -1,0 +1,81 @@
+{
+	"$schema" : "http://json-schema.org/draft-04/schema#",
+	"title" : "iafd validation schema",
+	"type" : "object",
+	"properties" : {
+		"website" : {
+			"oneOf": [
+				{ "type": "string", "format" : "uri" },
+				{ "type": "string", "pattern": "No data" }
+			]
+		},
+		"tattoos" : {
+			"type" : "string"
+		},
+		"birthplace" : {
+			"type" : "string"
+		},
+		"comments" : {
+			"type" : "string"
+		},
+		"weight" : {
+			"type" : "string"
+		},
+		"url" : {
+			"type" : "string",
+			"format" : "uri"
+		},
+		"photo" : {
+			"oneOf": [
+				{ "type": "string", "format" : "uri" },
+				{ "type": "null" }
+			]
+		},
+		"performer_aka" : {
+			"type" : "string"
+		},
+		"hair_color" : {
+			"type" : "string"
+		},
+		"height" : {
+			"type" : "string"
+		},
+		"birthday" : {
+			"type" : "string"
+		},
+		"piercings" : {
+			"type" : "string"
+		},
+		"nationality_heritage" : {
+			"type" : "string"
+		},
+		"active" : {
+			"type" : "string"
+		},
+		"ethnicity" : {
+			"type" : "string"
+		},
+		"astrology" : {
+			"type" : "string",
+			"enum": ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "No data"]
+		}
+	},
+	"required" : [
+		"website",
+		"tattoos",
+		"birthplace",
+		"comments",
+		"weight",
+		"url",
+		"photo",
+		"performer_aka",
+		"hair_color",
+		"height",
+		"birthday",
+		"piercings",
+		"nationality_heritage",
+		"active",
+		"ethnicity",
+		"astrology"
+	]
+}

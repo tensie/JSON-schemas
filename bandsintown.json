@@ -50,8 +50,10 @@
 			"format" : "uri"
 		},
 		"on_sale_datetime" : {
-			"type" : "string",
-			"format" : "datetime"
+			"oneOf": [
+				{ "type" : "string", "format" : "datetime" },
+				{ "type": "null" }
+			]	
 		},
 		"formatted_datetime" : {
 			"type" : "string"
@@ -123,7 +125,6 @@
 		"ticket_type",
 		"venue",
 		"facebook_rsvp_url",
-		"ticket_url",
 		"on_sale_datetime",
 		"formatted_datetime",
 		"datetime",
