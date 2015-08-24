@@ -44,8 +44,8 @@
 		},
 		"year" : {
 			"oneOf": [
-			{ "type" : "number", "pattern" : "(19|20)\\d\\d" },
-			{ "type" : "string", "pattern" : "(19|20)\\d\\d" }
+			{ "type" : "number" },
+			{ "type" : "string", "pattern" : "(1|2)\\d\\d\\d" }
 			]
 		},
 		"cover" : {
