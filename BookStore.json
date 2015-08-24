@@ -44,7 +44,7 @@
 		},
 		"year" : {
 			"oneOf": [
-			{ "type" : "number" },
+			{ "type" : "integer" },
 			{ "type" : "string", "pattern" : "(1|2)\\d\\d\\d" }
 			]
 		},
